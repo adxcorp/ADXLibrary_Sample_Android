@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="com.github.adxcorp.ADXLibrary_Android:adx-library-native-1.10.2">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/adx-library-native-1.10.2.aar/1dff32ea118a75eb32f994de051d5c8e/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/adx-library-native-1.10.2.aar/1dff32ea118a75eb32f994de051d5c8e/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

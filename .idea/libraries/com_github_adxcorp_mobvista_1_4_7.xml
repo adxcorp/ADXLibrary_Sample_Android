@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="com.github.adxcorp:mobvista-1.4.7">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mobvista-1.4.7.aar/8d98f4661b1b5a4c5de3d995dc01f556/jars/libs/mobvista_alphab.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mobvista-1.4.7.aar/8d98f4661b1b5a4c5de3d995dc01f556/jars/libs/mobvista_common.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mobvista-1.4.7.aar/8d98f4661b1b5a4c5de3d995dc01f556/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mobvista-1.4.7.aar/8d98f4661b1b5a4c5de3d995dc01f556/jars/libs/mobvista_appwall.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mobvista-1.4.7.aar/8d98f4661b1b5a4c5de3d995dc01f556/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mobvista-1.4.7.aar/8d98f4661b1b5a4c5de3d995dc01f556/jars/libs/mobvista_mvnative.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

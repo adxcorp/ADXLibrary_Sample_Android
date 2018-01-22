@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.github.adxcorp.mopub-android-sdk:mopub-sdk-interstitial-4.18.4">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mopub-sdk-interstitial-4.18.4.aar/afd01813c61c31e94bb2af046d84e287/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mopub-sdk-interstitial-4.18.4.aar/afd01813c61c31e94bb2af046d84e287/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.adxcorp.mopub-android-sdk/mopub-sdk-interstitial/4.18.4/e6694594f4b3a0ca708f5f46dcc38a0176124d1d/mopub-sdk-interstitial-4.18.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

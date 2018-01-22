@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="com.github.adxcorp.ADXLibrary_Android:adx-library-standard-korea-1.10.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/adx-library-standard-korea-1.10.2.aar/815e043064d48954d211b1741cc399ad/jars/libs/CaulySDK_3.4.18.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/adx-library-standard-korea-1.10.2.aar/815e043064d48954d211b1741cc399ad/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/adx-library-standard-korea-1.10.2.aar/815e043064d48954d211b1741cc399ad/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

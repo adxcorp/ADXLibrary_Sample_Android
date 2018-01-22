@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="com.github.adxcorp.ADXLibrary_Android:adx-library-rewarded-video-1.10.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/adx-library-rewarded-video-1.10.2.aar/68c20cc66364430c26702bc9b01c3123/jars/libs/mobvista_mvjscommon.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/adx-library-rewarded-video-1.10.2.aar/68c20cc66364430c26702bc9b01c3123/jars/libs/unityads_2.1.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/adx-library-rewarded-video-1.10.2.aar/68c20cc66364430c26702bc9b01c3123/jars/libs/mobvista_playercommon.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/adx-library-rewarded-video-1.10.2.aar/68c20cc66364430c26702bc9b01c3123/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/adx-library-rewarded-video-1.10.2.aar/68c20cc66364430c26702bc9b01c3123/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/adx-library-rewarded-video-1.10.2.aar/68c20cc66364430c26702bc9b01c3123/jars/libs/mobvista_videocommon.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/adx-library-rewarded-video-1.10.2.aar/68c20cc66364430c26702bc9b01c3123/jars/libs/applovin-sdk-7.5.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/adx-library-rewarded-video-1.10.2.aar/68c20cc66364430c26702bc9b01c3123/jars/libs/mobvista_reward.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/adx-library-rewarded-video-1.10.2.aar/68c20cc66364430c26702bc9b01c3123/jars/libs/cloudssp_videoads_1.7.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
