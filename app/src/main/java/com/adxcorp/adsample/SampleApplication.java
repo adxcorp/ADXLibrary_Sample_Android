@@ -26,6 +26,7 @@ public class SampleApplication extends MultiDexApplication {
                 .titleId(R.id.titleId)
                 .callToActionId(R.id.callToActionId)
                 .privacyInformationIconImageId(R.id.privacyInformationIconImageId)
+                .addExtra("ad_choices_container", R.id.ad_choices_container)
                 .build());
         NativeAdFactory.preloadAd(DefineAdUnitId.NATIVE_AD_UNIT_ID);
     }
