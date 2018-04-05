@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.adxcorp.adsample"
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
-        manifestPlaceholders = [app_license: ""]
+        manifestPlaceholders = [app_license: "8d47d1a49df0f1a329fce3b04e94e98b"]
         multiDexEnabled true
     }
     buildTypes {
@@ -30,5 +30,5 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 
-    compile 'com.github.adxcorp.ADXLibrary_Android:adx-library:1.10.2'
+    compile 'com.github.adxcorp.ADXLibrary_Android:adx-library:1.10.7'
 }

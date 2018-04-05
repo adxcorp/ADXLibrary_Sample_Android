@@ -15,8 +15,6 @@ public class SampleApplication extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
 
-        AppWallFactory.init(this, "32687", "10247");
-
         NativeAdFactory.init(this);
 
         // for Native Ad

@@ -27,9 +27,9 @@ public class RewardedVideoActivity extends AppCompatActivity {
         mButton = (Button) findViewById(R.id.button);
 
         MoPubRewardedVideos.initializeRewardedVideo(this);
-        loadRewardedVideo();
-
         MoPub.onCreate(this);
+
+        loadRewardedVideo();
 
 
         MoPubRewardedVideos.setRewardedVideoListener(new MoPubRewardedVideoListener() {
