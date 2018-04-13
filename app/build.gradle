@@ -9,7 +9,7 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
-        manifestPlaceholders = [app_license: "8d47d1a49df0f1a329fce3b04e94e98b"]
+        manifestPlaceholders = [app_license: "0a53c982d868ac20e92959ab2e9ef88f"]
         multiDexEnabled true
     }
     buildTypes {
