@@ -28,7 +28,7 @@ import java.util.Set;
 public class RewardedVideoActivity extends AppCompatActivity implements RewardedVideoAdListener {
     private RewardedVideoAd mRewardedVideoAd;
     private Button mButton;
-    private boolean isMoPub = true;
+    private boolean isMoPub = false;
 
     @Override
     protected  void onCreate(Bundle savedInstanceState) {
