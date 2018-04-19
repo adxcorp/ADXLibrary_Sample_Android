@@ -62,4 +62,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RewardedVideoActivity.class);
         startActivity(intent);
     }
+
+    @OnClick(R.id.btn_rewarded_video_adMob)
+    void onRewardedVideoAdMob() {
+        Intent intent = new Intent(this, RewardedVideoAdMobActivity.class);
+        startActivity(intent);
+    }
 }

@@ -52,18 +52,6 @@
             android:layout_marginTop="10dp"
             android:text="Native Ad RecyclerView Example" />
 
-        <!--
-        <Button
-            android:id="@+id/btn_native_ad_list_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="10dp"
-            android:text="Native Ad ListView Example" />
-        !-->
-
         <Button
             android:id="@+id/btn_native_ad_factory"
             android:layout_width="wrap_content"
@@ -93,6 +81,15 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="10dp"
             android:text="Rewarded Video Example" />
+        <Button
+            android:id="@+id/btn_rewarded_video_adMob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:text="Rewarded Video AdMob Example" />
     </LinearLayout>
 
 
