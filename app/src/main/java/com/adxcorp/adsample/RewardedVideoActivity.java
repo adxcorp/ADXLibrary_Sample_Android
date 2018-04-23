@@ -57,6 +57,7 @@ public class RewardedVideoActivity extends AppCompatActivity {
             @Override
             public void onRewardedVideoLoadSuccess(String adUnitId) {
                 Log.d("chiung.choi", "onRewardedVideoLoadSuccess");
+                Toast.makeText(RewardedVideoActivity.this, "onRewardedVideoLoadSuccess", Toast.LENGTH_LONG).show();
 
             }
 
@@ -64,6 +65,7 @@ public class RewardedVideoActivity extends AppCompatActivity {
             public void onRewardedVideoLoadFailure(String adUnitId, MoPubErrorCode errorCode) {
                 Log.d("chiung.choi", "onRewardedVideoLoadFailure");
                 Log.d("errorCode",errorCode.toString());
+                Toast.makeText(RewardedVideoActivity.this, "onRewardedVideoLoadFailure", Toast.LENGTH_LONG).show();
             }
 
             @Override
