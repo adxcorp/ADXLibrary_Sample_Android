@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.adxcorp.gdpr.ADXGDPR;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
@@ -29,8 +30,6 @@ public class RewardedVideoAdMobActivity extends AppCompatActivity implements Rew
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
         mRewardedVideoAd.setRewardedVideoAdListener(this);
 
-        loadRewardedVideoDataAdMob();
-
         mButton = (Button)findViewById(R.id.buttonAdMob);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,10 +39,14 @@ public class RewardedVideoAdMobActivity extends AppCompatActivity implements Rew
                     mRewardedVideoAd.show();
                 } else {
                     Log.d("eleanor", "isNOTLoaded");
-                    loadRewardedVideoDataAdMob();
+                    if (mRewardedVideoAd.isLoaded() == false) {
+                        loadRewardedVideoDataAdMob();
+                    }
                 }
             }
         });
+
+        loadRewardedVideoDataAdMob();
     }
 
     private void loadRewardedVideoDataAdMob() {
@@ -54,9 +57,13 @@ public class RewardedVideoAdMobActivity extends AppCompatActivity implements Rew
         placements[2] = "SAMPLE_ANDROID_REWARDED_VIDEO-3138664";
         Bundle extras = new VungleExtrasBuilder(placements).build();
 
+        if (ADXGDPR.ADXConsentState.values()[ADXGDPR.getResultGDPR(this)] == ADXGDPR.ADXConsentState.ADXConsentStateDenied) {
+            extras.putString("npa", "1");
+        }
+
         AdRequest request =  new AdRequest.Builder()
+                .addTestDevice("97E619D7296064A9130A9014FC1734D5")
                 .addNetworkExtrasBundle(VungleAdapter.class, extras)
-                .addTestDevice("4004489C018AF66569C76C82351F84F3")
                 .build();
 
         mRewardedVideoAd.loadAd("ca-app-pub-7466439784264697/2318439525", request);
@@ -97,6 +104,11 @@ public class RewardedVideoAdMobActivity extends AppCompatActivity implements Rew
     public void onRewardedVideoAdFailedToLoad(int var1) {
         Log.d("eleanor", "onRewardedVideoAdFailedToLoad");
         Toast.makeText(RewardedVideoAdMobActivity.this, "onRewardedVideoAdFailedToLoad", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onRewardedVideoCompleted() {
+
     }
 
 }

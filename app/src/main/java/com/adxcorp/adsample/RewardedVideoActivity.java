@@ -8,29 +8,32 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardItem;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.mopub.common.MediationSettings;
 import com.mopub.common.MoPub;
 import com.mopub.common.MoPubReward;
+//import com.mopub.common.SdkConfiguration;
 import com.mopub.mobileads.MoPubErrorCode;
+import com.mopub.mobileads.MoPubRewardedVideo;
 import com.mopub.mobileads.MoPubRewardedVideoListener;
+import com.mopub.mobileads.MoPubRewardedVideoManager;
 import com.mopub.mobileads.MoPubRewardedVideos;
 
 
-
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 public class RewardedVideoActivity extends AppCompatActivity {
     private Button mButton;
+    private List sNetworksToInit = new LinkedList<>();
 
     @Override
     protected  void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rewarded_video);
 
-        MoPubRewardedVideos.initializeRewardedVideo(this);
-        MoPub.onCreate(this);
+        MoPubRewardedVideoManager.init(this);
+        MoPubRewardedVideoManager.updateActivity(this);
 
         loadRewardedVideoDataMoPub();
 
@@ -38,6 +41,7 @@ public class RewardedVideoActivity extends AppCompatActivity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (MoPubRewardedVideos.hasRewardedVideo(DefineAdUnitId.REWARDED_VIDEO_AD_UNIT_ID)) {
                     Log.d("eleanor", "isLoaded");
                     MoPubRewardedVideos.showRewardedVideo(DefineAdUnitId.REWARDED_VIDEO_AD_UNIT_ID);
@@ -81,11 +85,13 @@ public class RewardedVideoActivity extends AppCompatActivity {
             @Override
             public void onRewardedVideoClosed(String adUnitId) {
                 Log.d("chiung.choi", "onRewardedVideoClosed");
+                loadRewardedVideoDataMoPub();
             }
 
             @Override
             public void onRewardedVideoCompleted(Set<String> adUnitIds, MoPubReward reward) {
                 Log.d("chiung.choi", "onRewardedVideoCompleted");
+
             }
         });
 
