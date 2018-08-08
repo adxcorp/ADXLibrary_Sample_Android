@@ -25,7 +25,6 @@ import java.util.Set;
 
 public class RewardedVideoActivity extends AppCompatActivity {
     private Button mButton;
-    private List sNetworksToInit = new LinkedList<>();
 
     @Override
     protected  void onCreate(Bundle savedInstanceState) {
@@ -55,42 +54,42 @@ public class RewardedVideoActivity extends AppCompatActivity {
         MoPubRewardedVideos.setRewardedVideoListener(new MoPubRewardedVideoListener() {
             @Override
             public void onRewardedVideoClicked(@NonNull String adUnitId) {
-                Log.d("chiung.choi", "onRewardedVideoClicked");
+                Log.d("eleanor", "onRewardedVideoClicked");
             }
 
             @Override
             public void onRewardedVideoLoadSuccess(String adUnitId) {
-                Log.d("chiung.choi", "onRewardedVideoLoadSuccess");
+                Log.d("eleanor", "onRewardedVideoLoadSuccess");
                 Toast.makeText(RewardedVideoActivity.this, "onRewardedVideoLoadSuccess", Toast.LENGTH_LONG).show();
 
             }
 
             @Override
             public void onRewardedVideoLoadFailure(String adUnitId, MoPubErrorCode errorCode) {
-                Log.d("chiung.choi", "onRewardedVideoLoadFailure");
+                Log.d("eleanor", "onRewardedVideoLoadFailure");
                 Log.d("errorCode",errorCode.toString());
                 Toast.makeText(RewardedVideoActivity.this, "onRewardedVideoLoadFailure", Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onRewardedVideoStarted(String adUnitId) {
-                Log.d("chiung.choi", "onRewardedVideoStarted");
+                Log.d("eleanor", "onRewardedVideoStarted");
             }
 
             @Override
             public void onRewardedVideoPlaybackError(String adUnitId, MoPubErrorCode errorCode) {
-                Log.d("chiung.choi", "onRewardedVideoPlaybackError");
+                Log.d("eleanor", "onRewardedVideoPlaybackError");
             }
 
             @Override
             public void onRewardedVideoClosed(String adUnitId) {
-                Log.d("chiung.choi", "onRewardedVideoClosed");
-                loadRewardedVideoDataMoPub();
+                Log.d("eleanor", "onRewardedVideoClosed");
+//                loadRewardedVideoDataMoPub();
             }
 
             @Override
             public void onRewardedVideoCompleted(Set<String> adUnitIds, MoPubReward reward) {
-                Log.d("chiung.choi", "onRewardedVideoCompleted");
+                Log.d("eleanor", "onRewardedVideoCompleted");
 
             }
         });

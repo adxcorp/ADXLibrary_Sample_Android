@@ -3,6 +3,7 @@ package com.adxcorp.adsample;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.mopub.mobileads.MoPubErrorCode;
 import com.mopub.mobileads.MoPubView;
@@ -27,22 +28,27 @@ public class CloseAdActivity extends AppCompatActivity {
                     @Override
                     public void onBannerLoaded(MoPubView arg0) {
                         mCloseMoPubView.setTag(1);
+                        Log.d("eleanor", "onBannerLoaded");
                     }
 
                     @Override
                     public void onBannerFailed(MoPubView arg0, MoPubErrorCode arg1) {
+                        Log.d("eleanor", "onBannerFailed");
                     }
 
                     @Override
                     public void onBannerExpanded(MoPubView arg0) {
+                        Log.d("eleanor", "onBannerExpanded");
                     }
 
                     @Override
                     public void onBannerCollapsed(MoPubView arg0) {
+                        Log.d("eleanor", "onBannerCollapsed");
                     }
 
                     @Override
                     public void onBannerClicked(MoPubView arg0) {
+                        Log.d("eleanor", "onBannerClicked");
                     }
                 });
 

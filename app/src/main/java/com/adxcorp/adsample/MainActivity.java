@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.RelativeLayout;
 
 import com.adxcorp.gdpr.ADXGDPR;
@@ -26,25 +25,25 @@ public class MainActivity extends AppCompatActivity {
 
         final Context context = this;
 
-        ADXGDPR.init(this, DefineAdUnitId.BANNER_AD_UNIT_ID);
-        ADXGDPR.showAdxConsent(this, false, new ADXGDPR.ADXConsentListener() {
+        NativeAdFactory.init(context);
+        // for Native Ad
+        NativeAdFactory.setViewBinder(DefineAdUnitId.NATIVE_AD_UNIT_ID, new ViewBinder.Builder(R.layout.layout_native_ad)
+                .mainImageId(R.id.mainImageId)
+                .iconImageId(R.id.iconImageId)
+                .titleId(R.id.titleId)
+                .privacyInformationIconImageId(R.id.privacyInformationIconImageId)
+                .callToActionId(R.id.callToActionId)
+                .addExtra("ad_choices_container", R.id.ad_choices_container)
+                .build());
+
+        ADXGDPR.initWithShowAdxConsent(this, DefineAdUnitId.BANNER_AD_UNIT_ID, true, new ADXGDPR.ADXConsentListener() {
             @Override
             public void onResult(ADXGDPR.ADXConsentState adxConsentState) {
-
-                NativeAdFactory.init(context);
-                // for Native Ad
-                NativeAdFactory.setViewBinder(DefineAdUnitId.NATIVE_AD_UNIT_ID, new ViewBinder.Builder(R.layout.layout_native_ad)
-                        .mainImageId(R.id.mainImageId)
-                        .iconImageId(R.id.iconImageId)
-                        .titleId(R.id.titleId)
-                        .privacyInformationIconImageId(R.id.privacyInformationIconImageId)
-                        .callToActionId(R.id.callToActionId)
-                        .addExtra("ad_choices_container", R.id.ad_choices_container)
-                        .build());
                 NativeAdFactory.preloadAd(DefineAdUnitId.NATIVE_AD_UNIT_ID);
-
             }
+
         });
+
 
         ButterKnife.bind(this);
     }

@@ -8,13 +8,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.adxcorp.gdpr.ADXGDPR;
+import com.google.ads.mediation.admob.AdMobAdapter;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
-import com.vungle.mediation.VungleAdapter;
-import com.vungle.mediation.VungleExtrasBuilder;
 
 public class RewardedVideoAdMobActivity extends AppCompatActivity implements RewardedVideoAdListener {
     private RewardedVideoAd mRewardedVideoAd;
@@ -51,11 +50,8 @@ public class RewardedVideoAdMobActivity extends AppCompatActivity implements Rew
 
     private void loadRewardedVideoDataAdMob() {
 
-        String[] placements = new String[3];
-        placements[0] = "DEFAULT-0339375";
-        placements[1] = "SAMPLE_ANDROID_INTERSTITIAL-0969912";
-        placements[2] = "SAMPLE_ANDROID_REWARDED_VIDEO-3138664";
-        Bundle extras = new VungleExtrasBuilder(placements).build();
+
+        Bundle extras = new Bundle();
 
         if (ADXGDPR.ADXConsentState.values()[ADXGDPR.getResultGDPR(this)] == ADXGDPR.ADXConsentState.ADXConsentStateDenied) {
             extras.putString("npa", "1");
@@ -63,7 +59,7 @@ public class RewardedVideoAdMobActivity extends AppCompatActivity implements Rew
 
         AdRequest request =  new AdRequest.Builder()
                 .addTestDevice("97E619D7296064A9130A9014FC1734D5")
-                .addNetworkExtrasBundle(VungleAdapter.class, extras)
+                .addNetworkExtrasBundle(AdMobAdapter.class, extras)
                 .build();
 
         mRewardedVideoAd.loadAd("ca-app-pub-7466439784264697/2318439525", request);
@@ -111,4 +107,21 @@ public class RewardedVideoAdMobActivity extends AppCompatActivity implements Rew
 
     }
 
+    @Override
+    public void onResume() {
+        mRewardedVideoAd.resume(this);
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        mRewardedVideoAd.pause(this);
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        mRewardedVideoAd.destroy(this);
+        super.onDestroy();
+    }
 }
