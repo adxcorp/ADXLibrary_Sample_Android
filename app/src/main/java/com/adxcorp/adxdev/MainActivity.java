@@ -1,12 +1,14 @@
-package com.adxcorp.adsample;
+package com.adxcorp.adxdev;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.RelativeLayout;
 
 import com.adxcorp.gdpr.ADXGDPR;
+//import com.mopub.nativeads.ADXViewBinder;
 import com.mopub.nativeads.NativeAdFactory;
 import com.mopub.nativeads.ViewBinder;
 
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         final Context context = this;
 
         NativeAdFactory.init(context);
-        // for Native Ad
+
         NativeAdFactory.setViewBinder(DefineAdUnitId.NATIVE_AD_UNIT_ID, new ViewBinder.Builder(R.layout.layout_native_ad)
                 .mainImageId(R.id.mainImageId)
                 .iconImageId(R.id.iconImageId)
@@ -36,14 +38,15 @@ public class MainActivity extends AppCompatActivity {
                 .addExtra("ad_choices_container", R.id.ad_choices_container)
                 .build());
 
-        ADXGDPR.initWithShowAdxConsent(this, DefineAdUnitId.BANNER_AD_UNIT_ID, true, new ADXGDPR.ADXConsentListener() {
+        ADXGDPR.initWithShowAdxConsent(this, DefineAdUnitId.BANNER_AD_UNIT_ID, false, new ADXGDPR.ADXConsentListener() {
             @Override
-            public void onResult(ADXGDPR.ADXConsentState adxConsentState) {
+            public void onResult(ADXGDPR.ADXConsentState state) {
+                Log.d("eleanor","initWithShowAdxConsent result : " + state);
                 NativeAdFactory.preloadAd(DefineAdUnitId.NATIVE_AD_UNIT_ID);
+
             }
 
         });
-
 
         ButterKnife.bind(this);
     }
@@ -63,6 +66,12 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.btn_close_ad)
     void onCloseAd() {
         Intent intent = new Intent(this, CloseAdActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.btn_native_close_ad)
+    void onNativeCloseAd() {
+        Intent intent = new Intent(this, CloseNativeAdActivity.class);
         startActivity(intent);
     }
 
@@ -94,5 +103,11 @@ public class MainActivity extends AppCompatActivity {
     void onRewardedVideoAdMob() {
         Intent intent = new Intent(this, RewardedVideoAdMobActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.e("eleanor","onDestroy");
     }
 }

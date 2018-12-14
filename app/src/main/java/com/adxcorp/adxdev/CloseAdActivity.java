@@ -1,4 +1,4 @@
-package com.adxcorp.adsample;
+package com.adxcorp.adxdev;
 
 import android.content.DialogInterface;
 import android.os.Bundle;

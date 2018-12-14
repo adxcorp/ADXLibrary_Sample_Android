@@ -1,4 +1,4 @@
-package com.adxcorp.adsample;
+package com.adxcorp.adxdev;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,6 +22,7 @@ public class BannerActivity extends AppCompatActivity {
 
         mMoPubView = (MoPubView) findViewById(R.id.adview);
         mMoPubView.setAdUnitId(DefineAdUnitId.BANNER_AD_UNIT_ID);
+        mMoPubView.setTesting(true);
         mMoPubView.setBannerAdListener(new MoPubView.BannerAdListener() {
             @Override
             public void onBannerLoaded(MoPubView banner) {

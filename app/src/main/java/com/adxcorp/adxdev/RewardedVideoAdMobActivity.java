@@ -1,4 +1,4 @@
-package com.adxcorp.adsample;
+package com.adxcorp.adxdev;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,7 +24,7 @@ public class RewardedVideoAdMobActivity extends AppCompatActivity implements Rew
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rewarded_video_ad_mob);
 
-        MobileAds.initialize(this, "ca-app-pub-7466439784264697~3084726285");
+        MobileAds.initialize(this);
 
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
         mRewardedVideoAd.setRewardedVideoAdListener(this);
@@ -58,16 +58,17 @@ public class RewardedVideoAdMobActivity extends AppCompatActivity implements Rew
         }
 
         AdRequest request =  new AdRequest.Builder()
-                .addTestDevice("97E619D7296064A9130A9014FC1734D5")
                 .addNetworkExtrasBundle(AdMobAdapter.class, extras)
                 .build();
+        request.isTestDevice(this);
 
-        mRewardedVideoAd.loadAd("ca-app-pub-7466439784264697/2318439525", request);
+        mRewardedVideoAd.loadAd("ca-app-pub-7325474360708943/1610082143", request);
     }
 
     @Override
     public void onRewardedVideoAdLoaded() {
-        Log.d("eleanor", "onRewardedVideoAdLoaded");
+        Log.d("eleanor", "onRewardedVideoAdLoaded : " + mRewardedVideoAd.getMediationAdapterClassName());
+
         Toast.makeText(RewardedVideoAdMobActivity.this, "onRewardedVideoAdLoaded", Toast.LENGTH_LONG).show();
     }
 
@@ -104,7 +105,7 @@ public class RewardedVideoAdMobActivity extends AppCompatActivity implements Rew
 
     @Override
     public void onRewardedVideoCompleted() {
-
+        Log.d("eleanor", "onRewardedVideoCompleted");
     }
 
     @Override

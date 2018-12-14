@@ -2,11 +2,10 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.adxcorp.adxdev"
         minSdkVersion 15
-        targetSdkVersion 23
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         manifestPlaceholders = [app_license: "0a53c982d868ac20e92959ab2e9ef88f"]
@@ -23,15 +22,15 @@ android {
 
 dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //noinspection GradleCompatible,GradleCompatible
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.android.support:multidex:1.0.1'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:multidex:1.0.1'
 
-    compile 'com.jakewharton:butterknife:8.4.0'
+    implementation 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 
-    implementation 'com.github.adxcorp.ADXLibrary_Android:adx-library:1.12.5'
+    implementation 'com.github.adxcorp.ADXLibrary_Android:adx-library:1.12.14'
 
 }

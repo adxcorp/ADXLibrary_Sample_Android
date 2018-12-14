@@ -6,7 +6,8 @@
     android:background="#eeeeee">
 
     <com.mopub.mobileads.MoPubView
+        android:layout_gravity="center"
         android:id="@+id/adview"
         android:layout_width="fill_parent"
-        android:layout_height="50dp" />
+        android:layout_height="50dp"/>
 </RelativeLayout>

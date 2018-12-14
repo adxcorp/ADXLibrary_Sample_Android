@@ -1,5 +1,6 @@
-package com.adxcorp.adsample;
+package com.adxcorp.adxdev;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -8,9 +9,11 @@ import android.widget.LinearLayout;
 
 import com.mopub.nativeads.NativeAd;
 import com.mopub.nativeads.NativeAdFactory;
+import com.mopub.nativeads.ViewBinder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by god on 2017. 3. 16..

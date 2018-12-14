@@ -1,7 +1,8 @@
-package com.adxcorp.adsample;
+package com.adxcorp.adxdev;
 
 import android.support.multidex.MultiDexApplication;
 
+//import com.adxcorp.gdpr.ADXGDPR;
 
 
 /**

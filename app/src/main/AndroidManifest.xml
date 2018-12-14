@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.adxcorp.adsample">
+    package="com.adxcorp.adxdev">
 
     <application
         android:name=".SampleApplication"
@@ -28,6 +27,9 @@
             android:name=".CloseAdActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".CloseNativeAdActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".NativeAdFactoryActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -39,7 +41,7 @@
         <activity
             android:name=".RewardedVideoActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".RewardedVideoAdMobActivity"></activity>
+        <activity android:name=".RewardedVideoAdMobActivity" />
     </application>
 
 </manifest>

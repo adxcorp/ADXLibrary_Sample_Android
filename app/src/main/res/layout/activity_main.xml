@@ -41,6 +41,15 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="10dp"
             android:text="Close Ad Example" />
+        <Button
+            android:id="@+id/btn_native_close_ad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:text="Native Close Ad Example" />
 
         <Button
             android:id="@+id/btn_native_ad_recycler_view"

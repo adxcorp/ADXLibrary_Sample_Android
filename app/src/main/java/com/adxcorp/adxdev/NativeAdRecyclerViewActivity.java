@@ -1,4 +1,4 @@
-package com.adxcorp.adsample;
+package com.adxcorp.adxdev;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.mopub.nativeads.MoPubRecyclerAdapter;
 import com.mopub.nativeads.NativeAdFactory;
+//import com.mopub.nativeads.NativeAdFactory;
 
 import java.util.ArrayList;
 import java.util.List;
