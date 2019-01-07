@@ -8,13 +8,15 @@ import android.util.Log;
 import android.widget.RelativeLayout;
 
 import com.adxcorp.gdpr.ADXGDPR;
-//import com.mopub.nativeads.ADXViewBinder;
+import com.mopub.nativeads.ADXViewBinder;
 import com.mopub.nativeads.NativeAdFactory;
 import com.mopub.nativeads.ViewBinder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+//import com.mopub.nativeads.ADXViewBinder;
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.content_main)
@@ -38,12 +40,19 @@ public class MainActivity extends AppCompatActivity {
                 .addExtra("ad_choices_container", R.id.ad_choices_container)
                 .build());
 
+        NativeAdFactory.setAdxViewBinder(DefineAdUnitId.NATIVE_AD_UNIT_ID, new ADXViewBinder.Builder(R.layout.layout_media_native_ad)
+                .mediaViewContainerId(R.id.mediaContainerId)
+                .adIconViewContainerId(R.id.adIconContainerId)
+                .titleId(R.id.titleId)
+                .adChoiceContainerId(R.id.adChoicesContainerId)
+                .callToActionId(R.id.callToActionId)
+                .build());
+
         ADXGDPR.initWithShowAdxConsent(this, DefineAdUnitId.BANNER_AD_UNIT_ID, false, new ADXGDPR.ADXConsentListener() {
             @Override
             public void onResult(ADXGDPR.ADXConsentState state) {
-                Log.d("eleanor","initWithShowAdxConsent result : " + state);
+                Log.d("eleanor", "initWithShowAdxConsent result : " + state);
                 NativeAdFactory.preloadAd(DefineAdUnitId.NATIVE_AD_UNIT_ID);
-
             }
 
         });
@@ -108,6 +117,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.e("eleanor","onDestroy");
+        Log.e("eleanor", "onDestroy");
     }
 }

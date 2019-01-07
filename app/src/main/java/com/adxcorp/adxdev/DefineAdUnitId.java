@@ -5,9 +5,9 @@ package com.adxcorp.adxdev;
  */
 
 public class DefineAdUnitId {
-    public static final String INTERSTITIAL_AD_UNIT_ID = "7758ce2f590f43fd8ba9f03d14fc8b78";
-    public static final String BANNER_AD_UNIT_ID = "f86ac2fde1d4480e95f1f0d80710a2fc";
-    public static final String SQUARE_AD_UNIT_ID = "d931bb2decdd45dca786bf1c3fad4216";
-    public static final String NATIVE_AD_UNIT_ID = "8fe57f8e949f468bb3f58ef5fdf7499d";
-    public static final String REWARDED_VIDEO_AD_UNIT_ID = "cba24206db20482db27b815b1deec598";
+    public static final String INTERSTITIAL_AD_UNIT_ID = "a8e0e1ff9de44766be2102e354fe3f92";
+    public static final String BANNER_AD_UNIT_ID = "c0a9aaa3404f4d7db48ca71ddb647502";
+    public static final String SQUARE_AD_UNIT_ID = "2fa21e561a9e4ebcac4b962110919304";
+    public static final String NATIVE_AD_UNIT_ID = "6b0c1d6ff25940ada7211a41f8d31da5";
+    public static final String REWARDED_VIDEO_AD_UNIT_ID = "56ceda53658b48198de5993ff3010487";
 }
