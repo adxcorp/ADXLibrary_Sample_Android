@@ -26,7 +26,6 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
             android:layout_marginTop="7dp"
-            android:background="@drawable/background_sponsor"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingLeft="7dp"

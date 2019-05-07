@@ -10,9 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.adxcorp.nativead.NativeAdFactory;
 import com.mopub.nativeads.MoPubRecyclerAdapter;
-import com.mopub.nativeads.NativeAdFactory;
-//import com.mopub.nativeads.NativeAdFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +32,7 @@ public class NativeAdRecyclerViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_native_ad_recyclerview);
 
-        for(int i = 0; i < 150; i++) {
+        for (int i = 0; i < 150; i++) {
             mList.add(String.format(Locale.US, "Content Item #%d", i));
         }
 

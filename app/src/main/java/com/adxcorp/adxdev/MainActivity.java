@@ -8,15 +8,13 @@ import android.util.Log;
 import android.widget.RelativeLayout;
 
 import com.adxcorp.gdpr.ADXGDPR;
+import com.adxcorp.nativead.NativeAdFactory;
 import com.mopub.nativeads.ADXViewBinder;
-import com.mopub.nativeads.NativeAdFactory;
 import com.mopub.nativeads.ViewBinder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-//import com.mopub.nativeads.ADXViewBinder;
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.content_main)
@@ -93,12 +91,6 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.btn_native_ad_recycler_view)
     void onNativeRecyclerView() {
         Intent intent = new Intent(this, NativeAdRecyclerViewActivity.class);
-        startActivity(intent);
-    }
-
-    @OnClick(R.id.btn_app_wall)
-    void onAppWall() {
-        Intent intent = new Intent(this, AppWallActivity.class);
         startActivity(intent);
     }
 

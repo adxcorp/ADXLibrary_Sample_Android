@@ -1,7 +1,7 @@
 package com.adxcorp.adxdev;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -29,7 +29,7 @@ public class RewardedVideoAdMobActivity extends AppCompatActivity implements Rew
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
         mRewardedVideoAd.setRewardedVideoAdListener(this);
 
-        mButton = (Button)findViewById(R.id.buttonAdMob);
+        mButton = (Button) findViewById(R.id.buttonAdMob);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,7 +57,7 @@ public class RewardedVideoAdMobActivity extends AppCompatActivity implements Rew
             extras.putString("npa", "1");
         }
 
-        AdRequest request =  new AdRequest.Builder()
+        AdRequest request = new AdRequest.Builder()
                 .addNetworkExtrasBundle(AdMobAdapter.class, extras)
                 .build();
         request.isTestDevice(this);

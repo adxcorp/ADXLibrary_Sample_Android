@@ -1,19 +1,16 @@
 package com.adxcorp.adxdev;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.adxcorp.nativead.NativeAdFactory;
 import com.mopub.nativeads.NativeAd;
-import com.mopub.nativeads.NativeAdFactory;
-import com.mopub.nativeads.ViewBinder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by god on 2017. 3. 16..
@@ -52,18 +49,18 @@ public class NativeAdFactoryActivity extends AppCompatActivity {
     private NativeAdFactory.NativeAdListener mListener = new NativeAdFactory.NativeAdListener() {
         @Override
         public void onSuccess(String s, NativeAd nativeAd) {
-            Log.d("eleanor","onSuccess");
+            Log.d("eleanor", "onSuccess");
             if (DefineAdUnitId.NATIVE_AD_UNIT_ID.equals(s)) {
                 mNativeAd = nativeAd;
                 mAdView = NativeAdFactory.getNativeAdView(NativeAdFactoryActivity.this, DefineAdUnitId.NATIVE_AD_UNIT_ID, mContentView, new NativeAd.MoPubNativeEventListener() {
                     @Override
                     public void onImpression(View view) {
-                        Log.d("eleanor","onImpression");
+                        Log.d("eleanor", "onImpression");
                     }
 
                     @Override
                     public void onClick(View view) {
-                        Log.d("eleanor","onClick");
+                        Log.d("eleanor", "onClick");
                     }
                 });
                 mContentView.addView(mAdView);
@@ -72,7 +69,7 @@ public class NativeAdFactoryActivity extends AppCompatActivity {
 
         @Override
         public void onFailure(String s) {
-            Log.d("eleanor","onFailure");
+            Log.d("eleanor", "onFailure");
         }
     };
 }

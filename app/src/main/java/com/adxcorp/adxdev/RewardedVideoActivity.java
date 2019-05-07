@@ -10,13 +10,10 @@ import android.widget.Toast;
 
 import com.mopub.common.MoPub;
 import com.mopub.common.MoPubReward;
-
 import com.mopub.mobileads.MoPubErrorCode;
-
 import com.mopub.mobileads.MoPubRewardedVideoListener;
 import com.mopub.mobileads.MoPubRewardedVideoManager;
 import com.mopub.mobileads.MoPubRewardedVideos;
-
 
 import java.util.Set;
 
@@ -24,7 +21,7 @@ public class RewardedVideoActivity extends AppCompatActivity {
     private Button mButton;
 
     @Override
-    protected  void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rewarded_video);
 
@@ -33,7 +30,7 @@ public class RewardedVideoActivity extends AppCompatActivity {
 
         loadRewardedVideoDataMoPub();
 
-        mButton = (Button)findViewById(R.id.button);
+        mButton = (Button) findViewById(R.id.button);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,7 +61,7 @@ public class RewardedVideoActivity extends AppCompatActivity {
             @Override
             public void onRewardedVideoLoadFailure(String adUnitId, MoPubErrorCode errorCode) {
                 Log.d("eleanor", "onRewardedVideoLoadFailure");
-                Log.d("errorCode",errorCode.toString());
+                Log.d("errorCode", errorCode.toString());
                 Toast.makeText(RewardedVideoActivity.this, "onRewardedVideoLoadFailure", Toast.LENGTH_LONG).show();
             }
 
