@@ -62,7 +62,7 @@ public class RewardedVideoAdMobActivity extends AppCompatActivity implements Rew
                 .build();
         request.isTestDevice(this);
 
-        mRewardedVideoAd.loadAd("ca-app-pub-7325474360708943/1610082143", request);
+        mRewardedVideoAd.loadAd("ca-app-pub-7466439784264697/2318439525", request);
     }
 
     @Override
