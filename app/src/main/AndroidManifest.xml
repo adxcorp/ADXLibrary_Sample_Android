@@ -40,6 +40,10 @@
             android:name="com.adxcorp.adxdev.RewardedVideoActivity"
             android:screenOrientation="portrait" />
         <activity android:name="com.adxcorp.adxdev.RewardedVideoAdMobActivity" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-7466439784264697~3084726285"/>
     </application>
 
 </manifest>

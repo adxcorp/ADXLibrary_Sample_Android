@@ -1,6 +1,6 @@
 package com.adxcorp.adxdev;
 
-import android.support.multidex.MultiDexApplication;
+import androidx.multidex.MultiDexApplication;
 
 /**
  * Created by god on 2017. 3. 13..

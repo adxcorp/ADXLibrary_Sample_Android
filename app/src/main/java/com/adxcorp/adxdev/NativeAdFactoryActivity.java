@@ -1,10 +1,11 @@
 package com.adxcorp.adxdev;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.adxcorp.nativead.NativeAdFactory;
 import com.mopub.nativeads.NativeAd;

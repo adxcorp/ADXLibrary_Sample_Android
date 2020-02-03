@@ -2,8 +2,9 @@ package com.adxcorp.adxdev;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.adxcorp.nativead.CloseAdFactory;
 

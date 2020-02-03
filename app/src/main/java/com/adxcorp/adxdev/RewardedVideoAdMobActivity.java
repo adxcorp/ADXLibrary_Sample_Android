@@ -1,11 +1,12 @@
 package com.adxcorp.adxdev;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.adxcorp.gdpr.ADXGDPR;
 import com.google.ads.mediation.admob.AdMobAdapter;
@@ -62,7 +63,7 @@ public class RewardedVideoAdMobActivity extends AppCompatActivity implements Rew
                 .build();
         request.isTestDevice(this);
 
-        mRewardedVideoAd.loadAd("ca-app-pub-7325474360708943/1610082143", request);
+        mRewardedVideoAd.loadAd("ca-app-pub-7466439784264697/2318439525", request);
     }
 
     @Override
