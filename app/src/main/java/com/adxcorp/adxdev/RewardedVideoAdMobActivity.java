@@ -6,51 +6,112 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.adxcorp.gdpr.ADXGDPR;
 import com.google.ads.mediation.admob.AdMobAdapter;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardItem;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.google.android.gms.ads.rewarded.RewardItem;
+import com.google.android.gms.ads.rewarded.RewardedAd;
+import com.google.android.gms.ads.rewarded.RewardedAdCallback;
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 
-public class RewardedVideoAdMobActivity extends AppCompatActivity implements RewardedVideoAdListener {
-    private RewardedVideoAd mRewardedVideoAd;
+public class RewardedVideoAdMobActivity extends AppCompatActivity {
+
+    private static final String TAG = "eleanor";
+
     private Button mButton;
+
+    private RewardedAd rewardedAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rewarded_video_ad_mob);
 
+        // 메인 액티비티에서 1회만 실행 필요
         MobileAds.initialize(this);
-
-        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
-        mRewardedVideoAd.setRewardedVideoAdListener(this);
 
         mButton = (Button) findViewById(R.id.buttonAdMob);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mRewardedVideoAd.isLoaded()) {
-                    Log.d("eleanor", "isLoaded");
-                    mRewardedVideoAd.show();
-                } else {
-                    Log.d("eleanor", "isNOTLoaded");
-                    if (mRewardedVideoAd.isLoaded() == false) {
-                        loadRewardedVideoDataAdMob();
-                    }
-                }
+                showAd();
             }
         });
 
-        loadRewardedVideoDataAdMob();
+        loadAd();
     }
 
-    private void loadRewardedVideoDataAdMob() {
+    public void loadAd() {
+        rewardedAd = createAndLoadRewardedAd();
+    }
 
+    public void showAd() {
+        if (rewardedAd != null && rewardedAd.isLoaded()) {
+            RewardedAdCallback adCallback = new RewardedAdCallback() {
+                @Override
+                public void onRewardedAdOpened() {
+                    // Ad opened.
+                    Log.d(TAG, "onRewardedAdOpened");
+                }
+
+                @Override
+                public void onRewardedAdClosed() {
+                    // Ad closed.
+                    Log.d(TAG, "onRewardedAdClosed");
+                    loadAd();
+                }
+
+                @Override
+                public void onUserEarnedReward(@NonNull RewardItem reward) {
+                    // User earned reward.
+                    Log.d(TAG, "onUserEarnedReward");
+                }
+
+                @Override
+                public void onRewardedAdFailedToShow(int errorCode) {
+                    // Ad failed to display.
+                    Log.d(TAG, "onRewardedAdFailedToShow : " + errorCode);
+                }
+            };
+
+            rewardedAd.show(this, adCallback);
+        } else {
+            Log.d(TAG, "The rewarded ad wasn't loaded yet.");
+            loadAd();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        rewardedAd = null;
+
+        super.onDestroy();
+    }
+
+    public RewardedAd createAndLoadRewardedAd() {
+
+        RewardedAd rewardedAd = new RewardedAd(this, "ca-app-pub-7466439784264697/2318439525");
+
+        RewardedAdLoadCallback adLoadCallback = new RewardedAdLoadCallback() {
+            @Override
+            public void onRewardedAdLoaded() {
+                // Ad successfully loaded.
+                Log.d(TAG, "onRewardedAdLoaded");
+                Toast.makeText(RewardedVideoAdMobActivity.this, "onRewardedVideoAdLoaded", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onRewardedAdFailedToLoad(int errorCode) {
+                // Ad failed to load.
+                Log.d(TAG, "onRewardedAdFailedToLoad : " + errorCode);
+                Toast.makeText(RewardedVideoAdMobActivity.this, "onRewardedAdFailedToLoad : " + errorCode, Toast.LENGTH_LONG).show();
+
+            }
+        };
 
         Bundle extras = new Bundle();
 
@@ -63,67 +124,7 @@ public class RewardedVideoAdMobActivity extends AppCompatActivity implements Rew
                 .build();
         request.isTestDevice(this);
 
-        mRewardedVideoAd.loadAd("ca-app-pub-7466439784264697/2318439525", request);
-    }
-
-    @Override
-    public void onRewardedVideoAdLoaded() {
-        Log.d("eleanor", "onRewardedVideoAdLoaded : " + mRewardedVideoAd.getMediationAdapterClassName());
-
-        Toast.makeText(RewardedVideoAdMobActivity.this, "onRewardedVideoAdLoaded", Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void onRewardedVideoAdOpened() {
-        Log.d("eleanor", "onRewardedVideoAdOpened");
-    }
-
-    @Override
-    public void onRewardedVideoStarted() {
-        Log.d("eleanor", "onRewardedVideoStarted");
-    }
-
-    @Override
-    public void onRewardedVideoAdClosed() {
-        Log.d("eleanor", "onRewardedVideoAdClosed");
-    }
-
-    @Override
-    public void onRewarded(RewardItem var1) {
-        Log.d("eleanor", "onRewarded");
-    }
-
-    @Override
-    public void onRewardedVideoAdLeftApplication() {
-        Log.d("eleanor", "onRewardedVideoAdLeftApplication");
-    }
-
-    @Override
-    public void onRewardedVideoAdFailedToLoad(int var1) {
-        Log.d("eleanor", "onRewardedVideoAdFailedToLoad");
-        Toast.makeText(RewardedVideoAdMobActivity.this, "onRewardedVideoAdFailedToLoad", Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void onRewardedVideoCompleted() {
-        Log.d("eleanor", "onRewardedVideoCompleted");
-    }
-
-    @Override
-    public void onResume() {
-        mRewardedVideoAd.resume(this);
-        super.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        mRewardedVideoAd.pause(this);
-        super.onPause();
-    }
-
-    @Override
-    public void onDestroy() {
-        mRewardedVideoAd.destroy(this);
-        super.onDestroy();
+        rewardedAd.loadAd(request, adLoadCallback);
+        return rewardedAd;
     }
 }
