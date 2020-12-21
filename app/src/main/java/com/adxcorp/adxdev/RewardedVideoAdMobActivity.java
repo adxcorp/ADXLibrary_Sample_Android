@@ -26,6 +26,8 @@ public class RewardedVideoAdMobActivity extends AppCompatActivity {
 
     private RewardedAd rewardedAd;
 
+    private String adUnitID = "ca-app-pub-7466439784264697/2318439525";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,7 +96,7 @@ public class RewardedVideoAdMobActivity extends AppCompatActivity {
 
     public RewardedAd createAndLoadRewardedAd() {
 
-        RewardedAd rewardedAd = new RewardedAd(this, "ca-app-pub-7466439784264697/2318439525");
+        RewardedAd rewardedAd = new RewardedAd(this, adUnitID);
 
         RewardedAdLoadCallback adLoadCallback = new RewardedAdLoadCallback() {
             @Override
