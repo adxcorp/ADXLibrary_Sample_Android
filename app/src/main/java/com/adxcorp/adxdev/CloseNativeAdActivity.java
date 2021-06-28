@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.adxcorp.nativead.CloseAdFactory;
 
 public class CloseNativeAdActivity extends AppCompatActivity {
+
+    private static final String TAG = "ADX:" + CloseNativeAdActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,14 +25,14 @@ public class CloseNativeAdActivity extends AppCompatActivity {
         CloseAdFactory.showCloseAd(this, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Log.d("chiung.choi", "onClick positive button");
+                Log.d(TAG, "onClick positive button");
 
                 finish();
             }
         }, new DialogInterface.OnCancelListener() {
             @Override
             public void onCancel(DialogInterface dialogInterface) {
-                Log.d("chiung.choi", "onCancel");
+                Log.d(TAG, "onCancel");
             }
         });
     }

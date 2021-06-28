@@ -18,11 +18,40 @@ import butterknife.ButterKnife;
  */
 
 public class NativeAdFactoryActivity extends AppCompatActivity {
+
+    private static final String TAG = "ADX:" + NativeAdFactoryActivity.class.getSimpleName();
+
     @BindView(R.id.content_main)
     LinearLayout mContentView;
 
     private View mAdView;
     private NativeAd mNativeAd;
+    private final NativeAdFactory.NativeAdListener mListener = new NativeAdFactory.NativeAdListener() {
+        @Override
+        public void onSuccess(String s, NativeAd nativeAd) {
+            Log.d(TAG, "onSuccess");
+            if (DefineAdUnitId.NATIVE_AD_UNIT_ID.equals(s)) {
+                mNativeAd = nativeAd;
+                mAdView = NativeAdFactory.getNativeAdView(NativeAdFactoryActivity.this, DefineAdUnitId.NATIVE_AD_UNIT_ID, mContentView, new NativeAd.MoPubNativeEventListener() {
+                    @Override
+                    public void onImpression(View view) {
+                        Log.d(TAG, "onImpression");
+                    }
+
+                    @Override
+                    public void onClick(View view) {
+                        Log.d(TAG, "onClick");
+                    }
+                });
+                mContentView.addView(mAdView);
+            }
+        }
+
+        @Override
+        public void onFailure(String s) {
+            Log.d(TAG, "onFailure");
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,31 +75,4 @@ public class NativeAdFactoryActivity extends AppCompatActivity {
 
         super.onDestroy();
     }
-
-    private NativeAdFactory.NativeAdListener mListener = new NativeAdFactory.NativeAdListener() {
-        @Override
-        public void onSuccess(String s, NativeAd nativeAd) {
-            Log.d("eleanor", "onSuccess");
-            if (DefineAdUnitId.NATIVE_AD_UNIT_ID.equals(s)) {
-                mNativeAd = nativeAd;
-                mAdView = NativeAdFactory.getNativeAdView(NativeAdFactoryActivity.this, DefineAdUnitId.NATIVE_AD_UNIT_ID, mContentView, new NativeAd.MoPubNativeEventListener() {
-                    @Override
-                    public void onImpression(View view) {
-                        Log.d("eleanor", "onImpression");
-                    }
-
-                    @Override
-                    public void onClick(View view) {
-                        Log.d("eleanor", "onClick");
-                    }
-                });
-                mContentView.addView(mAdView);
-            }
-        }
-
-        @Override
-        public void onFailure(String s) {
-            Log.d("eleanor", "onFailure");
-        }
-    };
 }

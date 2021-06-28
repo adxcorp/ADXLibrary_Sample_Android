@@ -6,19 +6,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.mopub.common.MoPub;
 import com.mopub.common.MoPubReward;
 import com.mopub.mobileads.MoPubErrorCode;
-import com.mopub.mobileads.MoPubRewardedVideoListener;
-import com.mopub.mobileads.MoPubRewardedVideoManager;
-import com.mopub.mobileads.MoPubRewardedVideos;
+import com.mopub.mobileads.MoPubRewardedAdListener;
+import com.mopub.mobileads.MoPubRewardedAdManager;
+import com.mopub.mobileads.MoPubRewardedAds;
 
 import java.util.Set;
 
 public class RewardedVideoActivity extends AppCompatActivity {
+
+    private static final String TAG = "ADX:" + RewardedVideoActivity.class.getSimpleName();
+
     private Button mButton;
 
     @Override
@@ -26,8 +28,8 @@ public class RewardedVideoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rewarded_video);
 
-        MoPubRewardedVideoManager.init(this);
-        MoPubRewardedVideoManager.updateActivity(this);
+        MoPubRewardedAdManager.init(this);
+        MoPubRewardedAdManager.updateActivity(this);
 
         loadRewardedVideoDataMoPub();
 
@@ -36,64 +38,59 @@ public class RewardedVideoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (MoPubRewardedVideos.hasRewardedVideo(DefineAdUnitId.REWARDED_VIDEO_AD_UNIT_ID)) {
-                    Log.d("eleanor", "isLoaded");
-                    MoPubRewardedVideos.showRewardedVideo(DefineAdUnitId.REWARDED_VIDEO_AD_UNIT_ID);
+                if (MoPubRewardedAds.hasRewardedAd(DefineAdUnitId.REWARDED_VIDEO_AD_UNIT_ID)) {
+                    Log.d(TAG, "isLoaded");
+                    MoPubRewardedAds.showRewardedAd(DefineAdUnitId.REWARDED_VIDEO_AD_UNIT_ID);
                 } else {
-                    Log.d("eleanor", "isNOTLoaded");
+                    Log.d(TAG, "isNOTLoaded");
                     loadRewardedVideoDataMoPub();
                 }
             }
         });
 
-        MoPubRewardedVideos.setRewardedVideoListener(new MoPubRewardedVideoListener() {
+        MoPubRewardedAds.setRewardedAdListener(new MoPubRewardedAdListener() {
             @Override
-            public void onRewardedVideoClicked(@NonNull String adUnitId) {
-                Log.d("eleanor", "onRewardedVideoClicked");
+            public void onRewardedAdLoadSuccess(String adUnitId) {
+                Log.d(TAG, "onRewardedAdLoadSuccess");
+                Toast.makeText(RewardedVideoActivity.this, "onRewardedAdLoadSuccess", Toast.LENGTH_LONG).show();
             }
 
             @Override
-            public void onRewardedVideoLoadSuccess(String adUnitId) {
-                Log.d("eleanor", "onRewardedVideoLoadSuccess");
-                Toast.makeText(RewardedVideoActivity.this, "onRewardedVideoLoadSuccess", Toast.LENGTH_LONG).show();
-
-            }
-
-            @Override
-            public void onRewardedVideoLoadFailure(String adUnitId, MoPubErrorCode errorCode) {
-                Log.d("eleanor", "onRewardedVideoLoadFailure");
-                Log.d("errorCode", errorCode.toString());
+            public void onRewardedAdLoadFailure(String adUnitId, MoPubErrorCode moPubErrorCode) {
+                Log.d(TAG, "onRewardedVideoLoadFailure : " + moPubErrorCode.toString());
                 Toast.makeText(RewardedVideoActivity.this, "onRewardedVideoLoadFailure", Toast.LENGTH_LONG).show();
             }
 
             @Override
-            public void onRewardedVideoStarted(String adUnitId) {
-                Log.d("eleanor", "onRewardedVideoStarted");
+            public void onRewardedAdStarted(String adUnitId) {
+                Log.d(TAG, "onRewardedVideoStarted");
             }
 
             @Override
-            public void onRewardedVideoPlaybackError(String adUnitId, MoPubErrorCode errorCode) {
-                Log.d("eleanor", "onRewardedVideoPlaybackError");
+            public void onRewardedAdShowError(String adUnitId, MoPubErrorCode moPubErrorCode) {
+                Log.d(TAG, "onRewardedAdShowError");
             }
 
             @Override
-            public void onRewardedVideoClosed(String adUnitId) {
-                Log.d("eleanor", "onRewardedVideoClosed");
-//                loadRewardedVideoDataMoPub();
+            public void onRewardedAdClicked(String adUnitId) {
+                Log.d(TAG, "onRewardedAdClicked");
             }
 
             @Override
-            public void onRewardedVideoCompleted(Set<String> adUnitIds, MoPubReward reward) {
-                Log.d("eleanor", "onRewardedVideoCompleted");
+            public void onRewardedAdClosed(String adUnitId) {
+                Log.d(TAG, "onRewardedAdClosed");
+            }
 
+            @Override
+            public void onRewardedAdCompleted(Set<String> set, MoPubReward moPubReward) {
+                Log.d(TAG, "onRewardedAdCompleted");
             }
         });
-
-
     }
 
     private void loadRewardedVideoDataMoPub() {
-        MoPubRewardedVideos.loadRewardedVideo(DefineAdUnitId.REWARDED_VIDEO_AD_UNIT_ID);
+        MoPubRewardedAds.loadRewardedAd(DefineAdUnitId.REWARDED_VIDEO_AD_UNIT_ID);
+        Log.d(TAG, "rewardvideo load");
     }
 
     @Override

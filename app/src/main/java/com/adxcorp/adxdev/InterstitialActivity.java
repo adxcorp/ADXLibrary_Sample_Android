@@ -14,6 +14,9 @@ import com.mopub.mobileads.MoPubInterstitial;
  */
 
 public class InterstitialActivity extends AppCompatActivity {
+
+    private static final String TAG = "ADX:" + InterstitialActivity.class.getSimpleName();
+
     private MoPubInterstitial mMoPubInterstitial;
 
     @Override
@@ -25,29 +28,29 @@ public class InterstitialActivity extends AppCompatActivity {
             @Override
             public void onInterstitialLoaded(MoPubInterstitial interstitial) {
                 mMoPubInterstitial.show();
-                Log.d("eleanor","onInterstitialLoaded");
+                Log.d(TAG, "onInterstitialLoaded");
             }
 
             @Override
             public void onInterstitialFailed(MoPubInterstitial interstitial, MoPubErrorCode errorCode) {
-                Log.d("eleanor","onInterstitialFailed");
+                Log.d(TAG, "onInterstitialFailed");
             }
 
             @Override
             public void onInterstitialShown(MoPubInterstitial interstitial) {
-                Log.d("eleanor","onInterstitialShown");
+                Log.d(TAG, "onInterstitialShown");
 
             }
 
             @Override
             public void onInterstitialClicked(MoPubInterstitial interstitial) {
-                Log.d("eleanor","onInterstitialClicked");
+                Log.d(TAG, "onInterstitialClicked");
 
             }
 
             @Override
             public void onInterstitialDismissed(MoPubInterstitial interstitial) {
-                Log.d("eleanor","onInterstitialDismissed");
+                Log.d(TAG, "onInterstitialDismissed");
 
             }
         });
